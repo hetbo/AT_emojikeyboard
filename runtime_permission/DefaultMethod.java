@@ -23,7 +23,7 @@ public class DefaultMethod extends AppCompatActivity {
                                 //ask for permission
                                 ActivityCompat.requestPermissions(DefaultMethod.this,new String[]{Manifest.permission.CAMERA},CAMERA_REQUEST_CODE);
                             }
-                        });
+                        }).show();
                     }else{
                         //First time asking permission
                         ActivityCompat.requestPermissions(DefaultMethod.this,new String[]{Manifest.permission.CAMERA},CAMERA_REQUEST_CODE);
@@ -58,7 +58,7 @@ public class DefaultMethod extends AppCompatActivity {
                         i.setData(Uri.fromParts("package",getPackageName(),null));
                         startActivity(i);
                     }
-                });
+                }).show();
             }
         }
     }
