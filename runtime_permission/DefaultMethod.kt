@@ -1,4 +1,4 @@
-class Test2Activity : AppCompatActivity() {
+class DefaultMethod : AppCompatActivity() {
 
     private val CAMERA_REQUEST_CODE = 100
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -6,18 +6,18 @@ class Test2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_test)
 
         permissionButton.setOnClickListener { 
-            if (ActivityCompat.checkSelfPermission(this@Test2Activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(this@DefaultMethod, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 //Permission is not granted
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this@Test2Activity, Manifest.permission.CAMERA)) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this@DefaultMethod, Manifest.permission.CAMERA)) {
                     //request denied once. we should say why we need this
                     val detail = "برای گرفتن عکس نیاز به دسترسی به دوربین می باشد"
                     Snackbar.make(it, detail, Snackbar.LENGTH_INDEFINITE).setAction("اجازه دادن") {
                         //ask for permission
-                        ActivityCompat.requestPermissions(this@Test2Activity, arrayOf(Manifest.permission.CAMERA), CAMERA_REQUEST_CODE) 
+                        ActivityCompat.requestPermissions(this@DefaultMethod, arrayOf(Manifest.permission.CAMERA), CAMERA_REQUEST_CODE) 
                     }.show()
                 } else {
                     //First time asking permission
-                    ActivityCompat.requestPermissions(this@Test2Activity, arrayOf(Manifest.permission.CAMERA), CAMERA_REQUEST_CODE)
+                    ActivityCompat.requestPermissions(this@DefaultMethod, arrayOf(Manifest.permission.CAMERA), CAMERA_REQUEST_CODE)
                 }
             } else {
                 //permission already granted
@@ -28,7 +28,7 @@ class Test2Activity : AppCompatActivity() {
 
     private fun doSomething() {
         //Here We Do Things that need Permission
-        Toast.makeText(this@Test2Activity, "دسترسی داده شده است. میتوان عمل مورد نظر را انجام داد!", Toast.LENGTH_LONG)
+        Toast.makeText(this@DefaultMethod, "دسترسی داده شده است. میتوان عمل مورد نظر را انجام داد!", Toast.LENGTH_LONG)
             .show()
     }
 
